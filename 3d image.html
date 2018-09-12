@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>3D image</title>
+	<style type="text/css">
+		body {
+  display:grid;
+  justify-content:center;
+  align-content:center;
+  min-height:100vh;
+  overflow:hidden;
+}
+
+a {
+  color:white;
+  display:block;
+  position:relative;
+  width:80vmin;
+  height:80vmin;
+  perspective:200px;
+}
+
+img {
+  width:auto;
+  height:100%;
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  display:block;
+}
+
+img:nth-of-type(3) {
+  clip-path:polygon(62.0% 0.2%,61.7% 60.8%,75.7% 61.5%,86.7% 81.2%,100% 88.2%,
+    100% 100%, 
+    23.3% 100%,25.0% 68.8%, 22.3% 70.2%,15.0% 69.2%,17.7% 66.8%,21.3% 65.5%,23.7% 56.8%,27.0% 54.8%,30.7% 0.2%
+  ); 
+}
+
+img:nth-of-type(2) {/*right*/
+  clip-path:polygon(62.0% 0%,61.7% 60.8%,75.7% 61.5%,86.7% 81.2%,100% 88.2%,
+    100% 100%, 100% 0
+  );
+}
+
+img:nth-of-type(1) {/*left*/
+  clip-path:polygon(30.7% 0%,
+    27.0% 54.8%,
+    23.7% 56.8%,
+    21.3% 65.5%,
+    17.7% 66.8%,
+    15.0% 69.2%,
+    22.3% 70.2%,
+    25.0% 68.8%,
+    23.3% 100%,
+    
+    0 100%, 0 0
+  );  
+}
+
+/*
+anim
+*/
+a {
+  transform-style:preserve-3d;
+  animation:2s f alternate infinite linear;
+} @keyframes f {
+  from {transform:rotateY(-15deg)}
+  to {transform:rotateY(15deg)}
+}
+
+img:nth-of-type(1) {/*left*/
+  transform-origin:30.7% top;
+  transform:
+      translate(-50%,-50%)
+      rotate3d(3.7,54.8,0,-30deg)/*first2vert form slope*/
+}
+
+img:nth-of-type(2) {/*right*/
+  transform-origin:62% top;
+  animation:1s g 1 forwards;
+} @keyframes g {
+  from {transform:translate(-50%,-50%)rotate3d(-0.3,60.8,0,0deg);}
+  to {transform:translate(-50%,-50%)rotate3d(-0.3,60.8,0,35deg);}
+}
+
+	</style>
+</head>
+<body>
+	<h3><center>HI, TAN !</center></h3>
+	<a href="https://www.instagram.com/p/Bnk0KXfnYKQ/?taken-by=e_xiu_o", target="_blank">
+    <img src="C:\Users\samsung\Desktop\보민\2018 2학기\React\3D\tan.jpg">
+    <img src="C:\Users\samsung\Desktop\보민\2018 2학기\React\3D\tan.jpg">
+    <img src="C:\Users\samsung\Desktop\보민\2018 2학기\React\3D\tan.jpg">
+</body>
+</html>
